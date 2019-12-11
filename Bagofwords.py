@@ -3,13 +3,13 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction import stop_words
 from nltk.stem import PorterStemmer
-import string
+import string, re
 ps = PorterStemmer()
 data = pd.read_csv("train.csv")
 for (index,comments) in enumerate(data['comment_text']):
-    comments = comments.translate(str.maketrans('','',string.punctuation))
+    comments = re.sub('[%s]' % re.escape(string.punctuation), '', comments)
     print (comments)
-    l = comments.split()
+    l = comments.decode('utf-8').split()
     data['comment_text'][index] = ' '.join([ps.stem(word) for word in l])
 
 print (data['comment_text'])
