@@ -10,4 +10,6 @@ Language Used: Python 3
 The project contains a Jupyter Notebook containing 3 models to solve the Toxicity Classification problem:
 1. Logistic Regression
 2. Random Forests
-3. GBM
+3. Gradient Boosted Machines
+
+Model is achieving accuracy of ~92% in all the 3 models.
